@@ -5,7 +5,7 @@ Contributors: Roger Bivand, Heather Turner, Lluís Revilla
 ## Introduction
 
 Packages extend R by providing additional code and/or data. Package
-development is typically an iterative process and maintenance involves
+development is typically an iterative process, and maintenance involves
 responding to changes in R and package dependencies.
 
 The essential tools for building and installing packages are provided as
@@ -35,9 +35,9 @@ If you think that some package is missing from the task view, please file an iss
 
 ### Checking the package landscape
 
-Before starting a new package it's worth searching for already available
+Before starting a new package, it's worth searching for already available
 packages, both from a developer's standpoint ("do not reinvent the
-wheel") and from a user's one (many packages implementing same/similar
+wheel") and from a user's one (many packages implementing the same/similar
 procedures can be confusing). If a package addressing the same
 functionality already exists, you may consider contributing to it
 instead of starting a new one.
@@ -77,7 +77,7 @@ WRE reference: [Package Structure](https://cran.r-project.org/doc/manuals/r-rele
 - `Rcpp.package.skeleton()` from `r pkg("Rcpp")` extends `package.skeleton()` to add the components required to use `r pkg("Rcpp")` for interfacing C or C++ code in R packages. `r pkg("usethis")` provide similar functionality with the `use_c()` and `use_rcpp()` functions.
 - `r bioc("biocthis")` automates setup for Bioconductor packages.
 - `r github("insightsengineering/r.pkg.template")` initializes a GitHub repository for an R package, with the standard files and directories, along with CI/CD configurations and pre-commit git hooks to identify and resolve common issues.
-- `r pkg("fusen")` and `r github("jacobbien/litr-project")` create a package from a R markdown file. `r pkg("noweb")` creates a package via literate programming with noweb syntax (as used by Sweave).
+- `r pkg("fusen")` and `r github("jacobbien/litr-project")` create a package from a R markdown file. `r pkg("noweb")` create a package via literate programming with noweb syntax (as used by Sweave).
 - `r pkg("DataPackageR")` creates a package from a dataset. `r pkg("rcompendium")` creates the structure for a Research Compendium: an R package structure to support reproducible research including raw data, analysis scripts, outputs and a make script.
 - `r pkg("leprechaun")` adds templating code to a package skeleton for creating a Shiny app as a package, without adding to the dependencies. `r pkg("golem")` creates a package template for developing and deploying a Shiny app using the `r pkg("golem")` framework.
 - `r pkg("pkgverse")` creates a meta package that bundles several related packages that can be installed and loaded together.
@@ -97,7 +97,7 @@ See the [Links](#links) section for other guides, including those from
 [rOpenSci](https://ropensci.org/).
 
 - `r pkg("devtools", priority = "core")` facilitates interactive development of R and compiled code via the `load_all()` function to simulate installing and reloading the package. Additional functions support generating documentation, testing, checking a package and submitting to CRAN.
-- `r pkg("usethis", priority = "core")` provides helpers to add new components such as `use_r()`, `use_data()`, `use_vignette()`, or `use_news_md()`, along with functions to support specific packages or workflows, such as `use_testthat()` or `use_git()`.
+- `r pkg("usethis", priority = "core")` provides helpers such as `use_r()`, `use_data()`, `use_vignette()`, or `use_news_md()` to add new components, along with functions to support specific packages or workflows, such as `use_testthat()` or `use_git()`.
 - `r pkg("packager")` performs package development tasks (document, build, check, etc) with `r pkg("fakemake")` or GNU make, so that make targets are only regenerated when files in the make chain have been updated. Provides a `create()` function to initialize a package with the required structure and an `infect()` function to work with a package initialized another way. The `r github("ComputationalProteomicsUnit/maker")` repository provides an external Makefile to perform development tasks.
 - `r github("rdatsci/rtcl")` provides command line utilities for development tasks, which are also provided as regular R functions.
 - `r github("unDocUMeantIt/roxyPackage")` provides the `roxy.package()` function to generate help files, vignettes and package-level documentation (e.g., NEWS and README) in both PDF and HTML; check and build packages, and manage a local package repository. Tasks can be performed individually or in combination.
@@ -105,7 +105,7 @@ See the [Links](#links) section for other guides, including those from
 
 ### Package documentation
 
-Help pages must be written for exported R objects and a help page may also be written for the package as a whole. Packages may also include vignettes to give an overview of package functionality or discuss more complex uses. Some contributed packages provide tools to create other types of documentation such
+Help pages must be written for exported R objects, and a help page may also be written for the package as a whole. Packages may also include vignettes to give an overview of package functionality or discuss more complex uses. Some contributed packages provide tools to create other types of documentation such
 as package websites or tutorials.
 
 #### Help pages
@@ -136,7 +136,7 @@ WRE reference: [Writing package vignettes](https://cran.r-project.org/doc/manual
 - `r pkg("knitr", priority = "core")` provides vignette engines to compile HTML and PDF vignettes. The `knitr::rmarkdown` engine can be used with the `rmarkdown::html_vignette()` format, which is a lightweight alternative to `knitr::html_document()`. For mathematics to render offline, the `math_method` argument of `rmarkdown::html_vignette()` should be set to `"katex"` or `"r-katex"`.
 - `r pkg("litedown", priority = "core")` provides a vignette engine that can be used with its own output formats for HTML and PDF. It is designed to have minimal dependencies and produce lightweight HTML files. It has sufficient features for most vignettes (e.g., table of contents, cross-references, citations) and is recommended unless richer features are required.
 - `r pkg("quarto")` provides a vignette engine that fixes configurations of the HTML format to produce a lightweight file. This may be preferred for richer features (equivalent to Sweave) or re-using material already using Quarto. Since `r pkg("quarto")` depends on `r pkg("rmarkdown")`, and adds Quarto as a system dependency, this option is dependency-heavy.
-- `r pkg("prettydoc")` provides `html_pretty()` as an alternative to `rmarkdown::html_vignette` that produces lightweight files with fancier themes.
+- `r pkg("prettydoc")` provides `html_pretty()` as an alternative to `rmarkdown::html_vignette()` that produces lightweight files with fancier themes.
 - `r pkg("R.rsp")` provides facilities to include static PDF or HTML vignettes; compile vignettes from plain LaTeX files, and render PDF or HTML vignettes with the `R.rsp::rsp` engine to use RSP pre-processing directives (e.g., include an external file or use document metadata) and code expressions that allow looping over text with code snippets.
 
 #### Other forms of documentation
@@ -155,7 +155,7 @@ WRE reference: [Writing package vignettes](https://cran.r-project.org/doc/manual
 - `r pkg("desc")` provides tools to read, write, create, and manipulate DESCRIPTION files.
 - `r pkg("semver")` provides tools for operating on [semantic version strings](http://semver.org).
 - `r pkg("newsmd")` provides functions to create or update a `NEWS.md` file. `r pkg("fledge")` and `r pkg("autonewsmd")` generate `NEWS.md` from git commit messages following conventions specific to each package.
-- `r pkg("codemetar")`, or the leaner `r pkg("codemeta")`, convert metadata from packages sources such as DESCRIPTION and CITATION to the CodeMeta `JSON-LD` format. This is a cross-language metadata standard used by search engines, software repositories etc.
+- `r pkg("codemetar")` and the leaner `r pkg("codemeta")` convert metadata from packages sources, such as DESCRIPTION and CITATION, to the CodeMeta `JSON-LD` format. This is a cross-language metadata standard used by search engines, software repositories etc.
 - `r pkg("cffr")` and `r pkg("citation")` generate a `CITATION.cff` file from package metadata and provide utilities to work with such files, e.g. converting to/from `"bibentry"` objects (see `utils::bibentry()`). `r pkg("cffr")` provides helpers for maintenance via git. `CITATION.cff` is a cross-language citation file format recognized by software repositories and citation managers.
 - `r pkg("badger")` generates URLs for customized badges from providers such as [shields.io](https://shields.io/), commonly added to README files and package websites to display metadata such as current CRAN version.
 - `r pkg("allcontributors")` facilitates acknowledging all contributors to code and repository issues in the README.
@@ -173,7 +173,7 @@ used to create promotional material such as stickers.
 
 Unit tests or regression tests can be added in a `tests` directory. Tests can
 be written in R scripts without depending on additional packages, using
-`base::stopifnot` or similar to throw errors when expectations fail. Test
+`base::stopifnot()` or similar to throw errors when expectations fail. Test
 scripts are run by [`R CMD check`](#standard-check), with output saved to a
 corresponding `.Rout` file. If a corresponding `.Rout.save` exists in the
 `tests` directory, the two output files are compared, with differences being
@@ -184,8 +184,8 @@ WRE reference: [Package subdirectories](https://cran.r-project.org/doc/manuals/R
 These packages provide some automation and helpers to test code:
 
 - `r pkg("tinytest", priority = "core")` allows to add tests to a package with no further dependencies and includes the tests in the installed package, making them available to users.
-- `r pkg("testthat", priority = "core")` helpers for tests including snapshot tests. `r pkg("patrick")` allows to parameterize testing with testthat. `r pkg("hySpc.testthat")` attaches the tests to functions.
-- `r pkg("RUnit")` and `r pkg("svUnit")` provides alternative unit testing frameworks, similar to `r pkg("testthat")`
+- `r pkg("testthat", priority = "core")` provides helpers for tests including snapshot tests. `r pkg("patrick")` allows to parameterize testing with testthat. `r pkg("hySpc.testthat")` attaches the tests to functions.
+- `r pkg("RUnit")` and `r pkg("svUnit")` provide alternative unit testing frameworks, similar to `r pkg("testthat")`
 - `r pkg("testit")` provides two convenience functions `assert()` and `test_pkg()` for a simple unit testing interface with minimal dependencies.
 - `r pkg("roxytest")` and `r pkg("roxut")` provide `r pkg("roxygen2")` roclets for testing with `r pkg("testthat")` and `r pkg("tinytest")`.
 - `r pkg("testex")` facilitates adding tests to examples, optionally via `r pkg("roxygen2")` roclets, including one for `r pkg("testthat")` style expectations.
@@ -210,11 +210,11 @@ Other packages focused on specific areas:
 - `r pkg("gdiff")` and `r pkg("vdiffr")` provide helpers for visual tests on graphical output. vdiffr integrates with testthat and provides a Shiny app to manage test cases.
 - `r pkg("shinytest2")` provides a testing framework for Shiny applications.
 - `r pkg("mcunit")` helps with unit testing MCMC methods.
-- `r pkg("checkmate")` and `r pkg("testdat")` package which extend testthat for data structures unit testing.
+- `r pkg("checkmate")` and `r pkg("testdat")` extend testthat for data structures unit testing.
 
 #### Code coverage
 
-- `r pkg(covr, priority = "core")` track and reports code coverage of package tests and optionally uploads the results to a service like [Codecov](https://about.codecov.io) or [Coveralls](https://coveralls.io).
+- `r pkg(covr, priority = "core")` tracks and reports code coverage of package tests and optionally uploads the results to a service like [Codecov](https://about.codecov.io) or [Coveralls](https://coveralls.io).
 - `r pkg(covtracer)` links tested code to documentation, to evaluate coverage of documented behaviours.
 
 ### Package-specific options
@@ -236,7 +236,7 @@ refined and robust management of options.
 For simple interactive interfaces, `base::readline()` can be used to create a basic prompt, while `utils::askYesNo()` prompts for a set response, by default "Yes" or "No".
 `utils::menu()` and `utils::select.list()` can provide graphical and console-based selection of items from a list, respectively. `utils::txtProgressBar()` provides a text progress bar.
 
-`tcltk` is a base package (not loaded by default) that provides a large set of tools for creating graphical interfaces using Tcl/Tk. most functions are thin wrappers around the corresponding Tcl and Tk functions.
+`tcltk` is a base package (not loaded by default) that provides a large set of tools for creating graphical interfaces using Tcl/Tk. Most functions are thin wrappers around the corresponding Tcl and Tk functions.
 
 - `r pkg("tcltk2")` provides additional Tcl commands and Tk widgets to supplement tcltk.
 - `r pkg("fgui")` facilitates rapid generation of a Tcl/Tk interface to one or multiple functions.
@@ -257,6 +257,9 @@ used to check translation files for inconsistently formatted strings.
 - `r pkg("stranslate")` provides an alternative mechanism for localization of R messages using plain text.
 - `r github("eliocamp/rhelpi18n")` provides experimental support for localization of help pages, based on YAML files provided by companion packages.
 
+The R Contribution Working Group has a [website](https://contributor.r-project.org/translations/)
+with an overview how to help with translating R messages.
+
 ### Building and installing a source package
 
 The standard tools to build and install a package are `R CMD build` and
@@ -264,13 +267,13 @@ The standard tools to build and install a package are `R CMD build` and
 
 - `r pkg("pkgbuild")` provides the `build()` function to build R packages and has several utilities to facilitate building packages with compiled code.
 - `r pkg("pkgload")` simulates the process of installing a package and then attaching it, enabling rapid iterative development.
-- There are many packages to facilitate installing packages from remote source code repositories, including those hosted on platforms like GitHub or GitLab. `r pkg("remotes")` has no dependencies and will install packages from any git or subversion repository accessible from a URL, with helpers for specific cases. In particular, `remotes::install_bioc()` can be used to install the development version of a Bioconductor package. `r pkg("ipkg")` depends on remotes and facilitates installing GitHub packages using a proxy website, if you don't have access to GitHub.
+- There are many packages to facilitate installing packages from remote source code repositories, including those hosted on platforms like GitHub or GitLab. `r pkg("remotes")` has no dependencies and will install packages from any git or subversion repository accessible from an URL, with helpers for specific cases. In particular, `remotes::install_bioc()` can be used to install the development version of a Bioconductor package. `r pkg("ipkg")` depends on remotes and facilitates installing GitHub packages using a proxy website, if you don't have access to GitHub.
 
 ### Checking a package
 
 #### Standard check
 
-The standard package check is implemented in `R CMD check` which should
+The standard package check is implemented in `R CMD check`, which should
 be run on a package built with `R CMD build`. The check runs examples
 and tests in the package and the contents of the package are tested in
 various ways for consistency and portability.
@@ -291,7 +294,7 @@ your package to the r-hub2 GitHub organization to use their shared pool of
 runners.
 - `r pkg("rcmdcheck")` runs `R CMD check` from R, returning an `"rcmdcheck"`
 object, which you can query and manipulate. The package also provides functions
-to parse check results from a file or from a url, including official CRAN check
+to parse check results from a file or from an URL, including official CRAN check
 results.
 - `r bioc("BiocCheck")` guides maintainers through Bioconductor best practices.
 
@@ -372,7 +375,7 @@ debugging in such cases.
 - The [Rocker](https://rocker-project.org/images/) project provides several
 Dockers containers with R installed. The
 [versioned stack](https://rocker-project.org/images/#the-versioned-stack) can
-be used to work with specific version of R, while the
+be used to work with a specific version of R, while the
 [base stack](https://rocker-project.org/images/#the-base-stack) provides R-devel
 installed alongside R-release, optionally configured with ASAN and USAN
 sanitizers.
@@ -397,10 +400,10 @@ solving common issues in package code or documentation found during CRAN
 Most packages are developed with long-term use in mind. This requires
 package developers to keep pace with changes in R, other packages,
 system tools and environments (e.g. compilers, operating systems) that
-affect the affect the behaviour of their package. Repositories like CRAN
+affect the behaviour of their package. Repositories like CRAN
 or Bioconductor require packages to meet their latest policies to avoid
 being archived/deprecated. Issues are typically picked up by a package
-failing the regular checks run by the repository maintainers and package
+failing the regular checks run by the repository maintainers, and package
 authors will be contacted when action is required. It is best if package
 authors take a proactive approach to maintenance to ensure their package
 remains useful and available.
@@ -475,7 +478,7 @@ packages, as well as other repositories specified in the
 Forward or reverse dependencies may be identified with `tools::package_dependencies`,
 based on a package database like that returned by `utils::available.packages`.
 Dependencies from either CRAN or Bioconductor can be found by
-setting the `repos` argument of `utils::available.packages` to  `BiocManager::repositories()`.
+setting the `repos` argument of `utils::available.packages()` to `BiocManager::repositories()`.
 
 `utils::update.packages` is useful for updating dependencies when trying out changes to a package.
 
@@ -501,10 +504,10 @@ optimizing package dependencies.
 dependencies, including those specified via `Remotes` in the DESCRIPTION,
 for packages on CRAN, Bioconductor, and git repositories.
 - `r pkg("pkggraph")`, `r pkg("pkgnet)`, `r pkg("deepdep")`, `r pkg("crandep")`
-and `r pkg("cranly")` provide  functionality to visualise package dependencies.
+and `r pkg("cranly")` provide functionality to visualise package dependencies.
 - `r pkg("pkgdepR")` can be used to create interactive visualisations of
 dependencies between functions across packages.
-- `r pkg("checked")` and  `r pkg("prrd")` are designed to run reverse
+- `r pkg("checked")` and `r pkg("prrd")` are designed to run reverse
 dependency checks in parallel. `r github("r-lib/revdepcheck")` is an
 alternative on GitHub with the same aim; `usethis::use_revdep()` sets up a
 package to work with `r github("r-lib/revdepcheck")`.
@@ -581,7 +584,7 @@ repository](https://github.com/eddelbuettel/crp).
 - `r pkg("badger")` provides `badge_cran_checks()` for adding a badge to your
 package `README.md` that either shows a summary or the worst results from
 the latest CRAN checks.
-- `r pkg("foghorn")` provide functions to query the CRAN checks based on
+- `r pkg("foghorn")` provides functions to query the CRAN checks based on
 maintainer email or package name, as well as checking where a package is in the
 CRAN incoming or Winbuilder queues.
 - [cransays](https://r-hub.github.io/cransays/articles/dashboard.html) and
